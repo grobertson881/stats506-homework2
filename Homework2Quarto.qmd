@@ -14,6 +14,42 @@ Link to Github repository: https://github.com/grobertson881/stats506-homework2
 
 *Part A*
 ```{r}
+# for loop
+random_walk1 <- function(n) {
+  step <- 0
+  for (i in 1:n) {
+    firstinput <- sample(c(-1, 1), size = 1, prob = c(0.5, 0.5))
+    if (firstinput == 1) {
+      step <- step + (sample(c(1, 10), size = 1, prob = c(0.95, 0.05)))
+    } else {
+      step <- step + (sample(c(-1, -3), size = 1, prob = c(0.80, 0.20)))
+    }
+  }
+  return(step)
+}
 
+# R vectorized functions
+random_walk2 <- function(n) {
+  steps <- sample(c(-1, 1), size = n, prob = c(0.5, 0.5), replace = TRUE)
+  positives <- which(steps == 1)
+  positivesteps <- sample(c(1, 10), size = length(positives), 
+                          prob = c(0.95, 0.05), replace = TRUE)
+  steps[positives] <- positivesteps
+  
+  negatives <- which(steps == -1)
+  negativesteps <- sample(c(-1,-3), size = length(negatives), 
+                          prob = c(0.80, 0.20), replace = TRUE)
+  steps[negatives] <- negativesteps
+  
+  return(sum(steps))
+}
+
+# apply functions
+random_walk3 <- function(n) {
+  steps <- sample(c(-1, 1), size = n, prob = c(0.5, 0.5), replace = TRUE)
+  positives <- which(steps == 1)
+  
+  
+}
 
 ```
