@@ -2,8 +2,6 @@
 title: "Homework2"
 format:
   html:
-    code-fold: true
-    code-summary: "Show the code"
     embed-resources: true
 editor: visual
 ---
